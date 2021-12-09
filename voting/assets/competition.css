@@ -1,0 +1,291 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #f9f9f9;
+}
+
+body::-webkit-scrollbar {
+  visibility: hidden;
+}
+
+#wrapper {
+  padding-left: 70px;
+}
+
+#info-container h1 {
+  font-size: 400%;
+  font-weight: bolder;
+}
+
+#info-container h4 {
+  font-weight: lighter;
+  font-size: 150%;
+  border-bottom: 2px solid #000;
+}
+
+#info-container div {
+  display: inline-table;
+  width: 300px;
+}
+
+#info-container #info-block-1 {
+  margin-right: 100px;
+}
+
+#info-container #info-block-1 p {
+  color: gray;
+}
+
+#info-container #info-block-2 p {
+  color: gray;
+}
+
+#info-container span {
+  letter-spacing: -9px;
+}
+
+#info-container span:nth-child(1) {
+  color: #F36E20;
+}
+
+#info-container span:nth-child(2) {
+  color: #F9F381;
+}
+
+#info-container span:nth-child(3) {
+  color: #4AC4CF;
+}
+
+#info-container span:nth-child(4) {
+  color: #201A57;
+}
+
+#info-p {
+  margin-top: -30px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+#ajax-contact {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+#ajax-contact input {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+#ajax-contact input[type=text], #ajax-contact input[type=email] {
+  border-bottom: 1px solid #000;
+}
+
+#ajax-contact input:focus {
+  outline: none;
+}
+
+#ajax-contact button {
+  font-family: Helvetica, sans-serif;
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 15px;
+  padding-right: 37px;
+  padding-left: 37px;
+  border: none;
+  color: #fff;
+  background-color: #000;
+}
+
+#send-button {
+  cursor: pointer;
+}
+
+#file-submit::-webkit-file-upload-button {
+  margin-top: 10px;
+  padding-right: 200px;
+  visibility: hidden;
+}
+
+input[type=file]::before {
+  content: "Upload your Design";
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  margin-left: -10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  cursor: pointer;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+#canvas-container {
+  float: right;
+  margin-top: -400px;
+  margin-right: 70px;
+}
+
+#canvas-container #download-button {
+  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-left: 250px;
+  margin-top: 70px;
+  border: 1px solid #000;
+}
+
+#view-submissions {
+  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-top: 100px;
+  margin-left: 700px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+#submissions-container {
+  position: fixed;
+  bottom: -1000px;
+  left: 0;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 4;
+}
+
+#submissions-container h1, #submissions-container p {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#submissions-container #submissions-images {
+  text-align: center;
+  margin-top: 150px;
+}
+
+#submissions-container #submissions-images div {
+  margin-bottom: 200px;
+}
+
+#submissions-container #submissions-images div img {
+  cursor: pointer;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+#submissions-container #submissions-images div img:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+#submissions-container #close-submissions-button {
+  position: fixed;
+  left: 70px;
+  background-color: transparent;
+  border: none;
+  font-size: 100px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1005px) and (max-width: 1404px) {
+  #canvas-container {
+    zoom: 0.7;
+    margin-top: -10vw;
+    margin-right: 50px;
+  }
+  #file-submit {
+    margin-top: 4.8px;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 1005px) {
+  #canvas-container {
+    float: left;
+    margin-top: -100px;
+    margin-left: -200px;
+    zoom: 0.7;
+  }
+  #ajax-contact {
+    margin-top: 500px;
+  }
+  #view-submissions {
+    margin-top: 100px;
+    margin-left: 0px;
+    margin-bottom: 200px;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 400px) {
+  body, html {
+    overflow-x: hidden;
+  }
+  #info-container {
+    margin-left: -7vw;
+  }
+  #canvas-container {
+    margin-top: -100px;
+    margin-right: -115px;
+    zoom: 0.7;
+  }
+  #ajax-contact {
+    margin-top: 500px;
+    margin-left: -18vw;
+    margin-bottom: -150px;
+  }
+  #ajax-contact input[type=text], #ajax-contact input[type=email] {
+    width: 100%;
+  }
+  #ajax-contact input[type=file] {
+    margin-left: 5vw;
+    zoom: 0.8;
+  }
+  #ajax-contact button {
+    position: relative;
+    z-index: 3;
+    margin-top: -72px;
+    margin-right: 5vw;
+    float: right;
+    zoom: 0.8;
+  }
+  #ajax-contact h3 {
+    width: 80%;
+    text-align: center;
+    margin-left: 30px;
+  }
+  #view-submissions {
+    margin-top: 25vw;
+    margin-left: -13vw;
+    margin-bottom: 100px;
+  }
+  #submissions-container h1 {
+    margin-top: 100px;
+  }
+  #close-submissions-button {
+    margin-left: 100px;
+  }
+}
+/*# sourceMappingURL=competition.css.map */

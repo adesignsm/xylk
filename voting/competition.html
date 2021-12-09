@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!---
+________   ________   _______    ________   ___   ________   ________    ________   _____ ______      
+|\   __  \ |\   ___ \ |\  ___ \  |\   ____\ |\  \ |\   ____\ |\   ___  \ |\   ____\ |\   _ \  _   \    
+\ \  \|\  \\ \  \_|\ \\ \   __/| \ \  \___|_\ \  \\ \  \___| \ \  \\ \  \\ \  \___|_\ \  \\\__\ \  \   
+ \ \   __  \\ \  \ \\ \\ \  \_|/__\ \_____  \\ \  \\ \  \  ___\ \  \\ \  \\ \_____  \\ \  \\|__| \  \  
+  \ \  \ \  \\ \  \_\\ \\ \  \_|\ \\|____|\  \\ \  \\ \  \|\  \\ \  \\ \  \\|____|\  \\ \  \    \ \  \ 
+   \ \__\ \__\\ \_______\\ \_______\ ____\_\  \\ \__\\ \_______\\ \__\\ \__\ ____\_\  \\ \__\    \ \__\
+    \|__|\|__| \|_______| \|_______||\_________\\|__| \|_______| \|__| \|__||\_________\\|__|     \|__|
+                                    \|_________|                            \|_________| developed by @adesignsm-->
+                                                                                                                                                                                                          
+<html>
+	<head>
+	    <title> XYLK.CO </title>
+	    <meta name="google-site-verification" content="zDWkUAZGLU1Q_6mNNGJL34ZUs0QFCDfIj6GqdX4qe3w" />
+	    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	    <meta name="robots" content="index">
+		<meta name="theme-color" content="#ffffff">
+        <!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#ffffff">
+			<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+			
+		<meta name="viewport" content= "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true" />
+		
+		<meta charset="UTF-8">
+		<meta name="description" content="xylk.co">
+		<meta name="keywords" content="xylk, grocery bags, toronto, creative, frank ocean, cars, XYLK, complexcon, hullmark">
+		<meta name="author" content="xylk">
+		<meta name="developer" content="adesignsm">
+	
+		<meta property="og:title" content="xylkco"/>
+		<meta property="og:url" content="https://www.xylk.co"/>
+		<meta property="og:site_name" content="xylkco"/>
+		<meta property="og:type" content="website"/>
+
+		<!-- <link rel="stylesheet" href="https://unpkg.com/98.css"> -->
+        <link rel = "stylesheet" type = "text/css" href = "assets/competition.css" />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	</head>
+
+	<body>
+		<div id = "wrapper">
+			<div id = "info-container">
+				<h1> 
+					<span> X </span>
+					<span> Y </span>
+					<span> L </span>
+					<span> K </span>
+					.CO
+				</h1>
+				<p id = "info-p"> Grocery bag Contest </p>
+				<div id = "info-block-1">
+					<h4> INSTRUCTIONS </h4>
+					<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				</div>
+				<div id = "info-block-2">
+					<h4> COMPLETION </h4>
+					<p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				</div>
+			</div>
+			
+			<div id = "canvas-container"></div> <!--MOST RECENT UPLOADED BAG DESIGN IN WEBGL-->
+			
+			<form id="ajax-contact" method="post" action="scripts/mailer.php"> <!--SEND TO PREFERD EMAIL-->
+				<div class="field">
+					<input type="text" id="name" name="name" required="" placeholder="Your name">
+				</div>
+
+				<div class="field">
+					<input type="email" id="email" name="email" required="" placeholder="Your email">
+				</div>
+
+				<div class="field">
+					<input type="text" id="socials" name="socials" required="" placeholder="Your instagram handle">
+				</div>
+
+				<input type = "file" id = "file-submit" name = "file-submit" required = "" accept = "image/*">
+
+				<button id="send-button" type="submit">Submit Design </button>
+
+				<h3 id = "file-status"></h3>
+			</form>
+
+			<h3 id = "form-messages"></h3>
+
+			<button id = "download-button"> <a href = "media/template.png" download = "template.png"> Download Template </a> </button>
+			<button id = "view-submissions"> View Other Submissions </button>
+
+			<div id = "submissions-container">
+				<button id = "close-submissions-button"> &times </button>
+				<h1 id = "24hr-countdown-clock"></h1>
+				<p> Click on or Tap the selected design to vote </p>
+
+				<div id = "submissions-images"></div>
+			</div> <!--FIREBASE DATABASE GET AND POST-->
+		</div>
+	</body>
+
+		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-storage.min.js" integrity="sha512-McmP/lKtqKf61PGCgpofj4nd0AcJ7rZ8HlZGocNta9YVAfXg6/8vJdkY+t+i2A74yoHX1uXGo/FIfwT0myMWHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script type = "text/javascript" src = "../scripts/three.js"></script>
+		<script type = "text/javascript" src="../scripts/DeviceControls.js"></script>
+		<script type = "text/javascript" src = "../scripts/OrbitControls.js"></script>
+		<script type = "text/javascript" src = "../scripts/GLTFLoader.js"></script>
+        <script type = "text/javascript" src = "scripts/competition_send.js"></script>
+        <script type = "application/php" src = "scripts/mailer.php"></script>
+		<script type = "text/javascript" src = "scripts/main.js"></script>
+</html>
