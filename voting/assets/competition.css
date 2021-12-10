@@ -2,20 +2,59 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: Helvetica, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
   visibility: hidden;
 }
 
-#wrapper {
-  padding-left: 70px;
+header {
+  margin-top: 10px;
 }
 
-#info-container h1 {
-  font-size: 400%;
-  font-weight: bolder;
+header #grocery-logo {
+  float: left;
+  width: 550px;
+}
+
+header #logo {
+  float: right;
+  width: 300px;
+  zoom: 1.7;
+  margin-top: -50px;
+  margin-bottom: -100px;
+  margin-right: 50px;
+}
+
+#placeholder-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  display: none;
+  text-align: center;
+}
+
+#placeholder-page h1 {
+  margin-top: 50px;
+}
+
+#placeholder-page img {
+  margin-top: 5px;
+  width: 50vw;
+}
+
+#wrapper {
+  padding-left: 50px;
+}
+
+#info-container {
+  position: relative;
+  z-index: 1;
 }
 
 #info-container h4 {
@@ -26,18 +65,15 @@ body::-webkit-scrollbar {
 
 #info-container div {
   display: inline-table;
-  width: 300px;
+  width: 50%;
 }
 
 #info-container #info-block-1 {
-  margin-right: 100px;
+  margin-top: 400px;
+  margin-left: -550px;
 }
 
 #info-container #info-block-1 p {
-  color: gray;
-}
-
-#info-container #info-block-2 p {
   color: gray;
 }
 
@@ -59,6 +95,10 @@ body::-webkit-scrollbar {
 
 #info-container span:nth-child(4) {
   color: #201A57;
+}
+
+.xylky {
+  width: 80px;
 }
 
 #info-p {
@@ -93,21 +133,26 @@ body::-webkit-scrollbar {
   outline: none;
 }
 
-#ajax-contact button {
+#ajax-contact #waving-xylky {
+  width: 300px;
+  position: absolute;
+  z-index: 0;
+  margin-top: -130px;
+  margin-left: 350px;
+}
+
+#ajax-contact #send-button {
+  cursor: default;
   font-family: Helvetica, sans-serif;
   display: block;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: -10px;
   padding: 15px;
   padding-right: 37px;
   padding-left: 37px;
   border: none;
   color: #fff;
-  background-color: #000;
-}
-
-#send-button {
-  cursor: pointer;
+  background-color: #d9d9d9;
 }
 
 #file-submit::-webkit-file-upload-button {
@@ -117,9 +162,9 @@ body::-webkit-scrollbar {
 }
 
 input[type=file]::before {
-  content: "Upload your Design";
+  content: "Upload your design";
   padding: 15px;
-  background-color: #000;
+  background-color: #F46E21;
   color: #fff;
   margin-left: -10px;
   outline: none;
@@ -131,37 +176,55 @@ input[type=file]::before {
   cursor: pointer;
 }
 
+#goodluck-xylky {
+  position: absolute;
+  margin-top: 150px;
+  left: 70px;
+  width: 200px;
+}
+
 a {
   color: #000;
   text-decoration: none;
 }
 
 #canvas-container {
+    position: relative;
+    z-index: 3;
   float: right;
-  margin-top: -400px;
-  margin-right: 70px;
+  margin-top: -500px;
+  margin-right: -60px;
 }
 
 #canvas-container #download-button {
-  font-size: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 40px;
-  padding-left: 40px;
+  font-size: 22px;
+  padding: 15px;
+  background-color: #F46E21;
+  color: #fff;
   margin-left: 250px;
-  margin-top: 70px;
-  border: 1px solid #000;
+  margin-top: -50px;
+  border: none;
+  color: #fff;
+  background-color: #F46E21;
+}
+
+#canvas-container #download-button a {
+  color: #fff;
+}
+
+#buttons-container {
+  position: absolute;
+  margin-top: -200px;
+  left: 35vw;
 }
 
 #view-submissions {
-  font-size: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 40px;
-  padding-left: 40px;
-  margin-top: 100px;
-  margin-left: 700px;
-  border: 1px solid #000;
+  font-size: 22px;
+  padding: 15px;
+  background-color: #F46E21;
+  color: #fff;
+  margin-top: 10px;
+  border: none;
   cursor: pointer;
 }
 
@@ -175,6 +238,12 @@ a {
   overflow-y: scroll;
   overflow-x: hidden;
   z-index: 4;
+}
+
+#submissions-container #countdown-xylky {
+  position: absolute;
+  margin-left: 15vw;
+  width: 200px;
 }
 
 #submissions-container h1, #submissions-container p {
@@ -191,13 +260,14 @@ a {
   margin-bottom: 200px;
 }
 
-#submissions-container #submissions-images div img {
+#submissions-container #submissions-images div #voting-button {
+  zoom: 0.8;
   cursor: pointer;
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
 }
 
-#submissions-container #submissions-images div img:hover {
+#submissions-container #submissions-images div #voting-button:hover {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
@@ -211,18 +281,84 @@ a {
   cursor: pointer;
 }
 
+footer {
+  text-align: center;
+  margin-top: -50px;
+  zoom: 0.6;
+}
+
+footer #footer-content {
+  margin-left: -130px;
+}
+
+footer #xylk-logo {
+  float: right;
+  margin-top: -100px;
+  margin-right: 440px;
+  padding-top: 30px;
+  width: 150px;
+}
+
+footer #hullmark-logo {
+  margin-top: -100px;
+  margin-left: 1650px;
+  padding-bottom: 10px;
+  width: 200px;
+}
+
+footer img {
+  width: 100px;
+}
+
+#form-messages {
+    display: none;
+}
+
 @media only screen and (min-width: 1005px) and (max-width: 1404px) {
   #canvas-container {
     zoom: 0.7;
-    margin-top: -10vw;
-    margin-right: 50px;
+    margin-top: -41vw;
+    margin-right: 100px;
+  }
+  #canvas-container #download-button {
+    font-size: 25px;
+    padding: 20px;
+    background-color: #F46E21;
+    color: #fff;
   }
   #file-submit {
-    margin-top: 4.8px;
+    margin-top: -10px;
+  }
+  footer {
+    text-align: center;
+    margin-top: -65px;
+    zoom: 0.6;
+  }
+  footer #footer-content {
+    margin-left: -130px;
+  }
+  footer #xylk-logo {
+    float: right;
+    margin-top: -100px;
+    margin-right: 450px;
+    padding-top: 30px;
+    width: 150px;
+  }
+  footer #hullmark-logo {
+    margin-top: -100px;
+    margin-left: 1500px;
+    padding-bottom: 10px;
+    width: 200px;
+  }
+  footer img {
+    width: 100px;
   }
 }
 
-@media only screen and (min-width: 400px) and (max-width: 1005px) {
+@media only screen and (min-width: 450px) and (max-width: 1005px) {
+  #info-container div {
+    width: 80%;
+  }
   #canvas-container {
     float: left;
     margin-top: -100px;
@@ -233,18 +369,38 @@ a {
     margin-top: 500px;
   }
   #view-submissions {
-    margin-top: 100px;
-    margin-left: 0px;
+    margin-top: 250px;
+    margin-left: 20vw;
     margin-bottom: 200px;
+  }
+  #waving-xylky {
+    top: 800px;
+  }
+  #goodluck-xylky {
+    margin-top: -200px;
+    margin-left: 400px;
+    width: 250px;
+  }
+  #countdown-xylky {
+    position: absolute;
+    right: 5px;
+  }
+  footer #hullmark-logo {
+    margin-top: 50px;
+    margin-left: 50px;
+    float: left;
+  }
+  footer #xylk-logo {
+    margin-top: 10px;
   }
 }
 
-@media only screen and (min-width: 200px) and (max-width: 400px) {
+@media only screen and (min-width: 200px) and (max-width: 450px) {
   body, html {
     overflow-x: hidden;
   }
-  #info-container {
-    margin-left: -7vw;
+  #info-container div {
+    width: 70%;
   }
   #canvas-container {
     margin-top: -100px;
@@ -263,6 +419,9 @@ a {
     margin-left: 5vw;
     zoom: 0.8;
   }
+  #ajax-contact #send-button {
+    margin-top: -70px;
+  }
   #ajax-contact button {
     position: relative;
     z-index: 3;
@@ -277,15 +436,47 @@ a {
     margin-left: 30px;
   }
   #view-submissions {
-    margin-top: 25vw;
-    margin-left: -13vw;
+    margin-top: 20vw;
+    margin-left: -9vw;
     margin-bottom: 100px;
+  }
+  #goodluck-xylky {
+    width: 150px;
+    margin-top: 300px;
+    left: 30vw;
   }
   #submissions-container h1 {
     margin-top: 100px;
   }
+  #submissions-container #countdown-xylky {
+    width: 100px;
+  }
   #close-submissions-button {
     margin-left: 100px;
+  }
+  footer {
+    margin-top: 200px;
+  }
+  footer #hullmark-logo {
+    float: left;
+    margin-left: 10px;
+  }
+  footer #hullmark-logo img {
+    width: 100px;
+  }
+  footer #xylk-logo {
+    width: 100px;
+    margin-top: 0px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 1330px) {
+  #wrapper {
+    display: none;
+  }
+  #placeholder-page {
+    display: block;
   }
 }
 /*# sourceMappingURL=competition.css.map */

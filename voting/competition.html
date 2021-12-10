@@ -11,7 +11,7 @@ ________   ________   _______    ________   ___   ________   ________    _______
                                                                                                                                                                                                           
 <html>
 	<head>
-	    <title> XYLK.CO </title>
+	    <title> DESIGN CONTEST </title>
 	    <meta name="google-site-verification" content="zDWkUAZGLU1Q_6mNNGJL34ZUs0QFCDfIj6GqdX4qe3w" />
 	    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	    <meta name="robots" content="index">
@@ -26,7 +26,7 @@ ________   ________   _______    ________   ___   ________   ________    _______
 		
 		<meta charset="UTF-8">
 		<meta name="description" content="xylk.co">
-		<meta name="keywords" content="xylk, grocery bags, toronto, creative, frank ocean, cars, XYLK, complexcon, hullmark">
+		<meta name="keywords" content="xylk, grocery bags, toronto, creative, frank ocean, cars, XYLK, complexcon, hullmark, voting">
 		<meta name="author" content="xylk">
 		<meta name="developer" content="adesignsm">
 	
@@ -43,71 +43,87 @@ ________   ________   _______    ________   ___   ________   ________    _______
 	</head>
 
 	<body>
+		<div id = "placeholder-page">
+			<h1> Mobile page is still under construction. Best viewed in Desktop </h1> 
+			<img src = "media/underconstruction.gif"/>
+		</div>
+
 		<div id = "wrapper">
+			<header>
+				<img id = "grocery-logo" src = "media/GROCERY_BAGS_LOGO.jpg" />
+				<img id = "logo" src = "media/DESIGN_CONTEST_LOGO.jpg" />
+			</header>
+
 			<div id = "info-container">
-				<h1> 
-					<span> X </span>
-					<span> Y </span>
-					<span> L </span>
-					<span> K </span>
-					.CO
-				</h1>
-				<p id = "info-p"> Grocery bag Contest </p>
+				<p id = "info-p" style = "opacity: 0; margin-bottom: -70px"> Grocery bag Contest </p>
 				<div id = "info-block-1">
-					<h4> INSTRUCTIONS </h4>
-					<p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-				</div>
-				<div id = "info-block-2">
-					<h4> COMPLETION </h4>
-					<p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<h4> XYLK x Hullmark </h4>
+					<h2> Submission deadline: December 13th </h2>
+					<ul>
+						<li> Voting round 1: December 14th (24 hour window) </li>
+						<li> Voting round 2: December 19th (24 hour window) </li>
+						<li> Voting round 3: December 24th (24 hour window. Get as many votes as you can in 3 rounds!) </li>
+					</ul>
+					<h2> Winner will be announced on December 25th, 8pm EST via <a href = "https://instagram.com/xylk.co"> @xylk.co's instagram. </a></h2>
+					<h2> PRIZE: 500 units of your custom design grocery bags + mentorship with Xylk Lorena on how to set up e-commerce and marketing of the product </h2>
+					<ul style = "list-style-type:decimal">
+						<li> Download Grocery Bag template </li>
+						<li> Upload your design (Deadline: December 13th) </li>
+						<li> Get your supporters to VOTE for your grocery bag design on <a href = "https://www.xylk.co" style = "font-weight: bolder;"> www.xylk.co </a> (1 vote per person each round/day)</li>
+					</ul>
 				</div>
 			</div>
 			
 			<div id = "canvas-container"></div> <!--MOST RECENT UPLOADED BAG DESIGN IN WEBGL-->
 			
-			<form id="ajax-contact" method="post" action="scripts/mailer.php"> <!--SEND TO PREFERD EMAIL-->
+			<form id="ajax-contact" method="post" action=" "> <!--SEND TO PREFERD EMAIL ( )-->
+				
 				<div class="field">
-					<input type="text" id="name" name="name" required="" placeholder="Your name">
+					<input type="text" id="name" name="name" required="" placeholder="Name">
 				</div>
 
 				<div class="field">
-					<input type="email" id="email" name="email" required="" placeholder="Your email">
+					<input type="email" id="email" name="email" required="" placeholder="Email">
 				</div>
 
 				<div class="field">
-					<input type="text" id="socials" name="socials" required="" placeholder="Your instagram handle">
+					<input type="text" id="socials" name="socials" required="" placeholder="Instagram">
 				</div>
 
-				<input type = "file" id = "file-submit" name = "file-submit" required = "" accept = "image/*">
-
-				<button id="send-button" type="submit">Submit Design </button>
+				<div id = "buttons-container">
+					<input type = "file" id = "file-submit" name = "file-submit" required = "" accept = "image/*">
+					<button id="send-button"> No file chosen </button>
+					<button id = "view-submissions" disabled style = "opacity: 0.5;"> View submissions </button>
+				</div>
 
 				<h3 id = "file-status"></h3>
+				<h3 id = "form-messages"></h3>
 			</form>
 
-			<h3 id = "form-messages"></h3>
-
 			<button id = "download-button"> <a href = "media/template.png" download = "template.png"> Download Template </a> </button>
-			<button id = "view-submissions"> View Other Submissions </button>
 
 			<div id = "submissions-container">
-				<button id = "close-submissions-button"> &times </button>
+				<button id = "close-submissions-button"> &times; </button>
+				<img id = "countdown-xylky" src = "media/countdown.gif" />
 				<h1 id = "24hr-countdown-clock"></h1>
-				<p> Click on or Tap the selected design to vote </p>
 
 				<div id = "submissions-images"></div>
 			</div> <!--FIREBASE DATABASE GET AND POST-->
 		</div>
+
+		<footer>
+			<div id = "footer-content">
+				<img id = "hullmark-logo" src = "media/hullmark.png"/>
+				<img id = "xylk-logo" src = "media/FINAL_LOGO.jpg" />
+			</div>
+		</footer>
 	</body>
 
 		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-storage.min.js" integrity="sha512-McmP/lKtqKf61PGCgpofj4nd0AcJ7rZ8HlZGocNta9YVAfXg6/8vJdkY+t+i2A74yoHX1uXGo/FIfwT0myMWHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type = "text/javascript" src = "../scripts/three.js"></script>
-		<script type = "text/javascript" src="../scripts/DeviceControls.js"></script>
-		<script type = "text/javascript" src = "../scripts/OrbitControls.js"></script>
-		<script type = "text/javascript" src = "../scripts/GLTFLoader.js"></script>
-        <script type = "text/javascript" src = "scripts/competition_send.js"></script>
-        <script type = "application/php" src = "scripts/mailer.php"></script>
+		<script type = "text/javascript" src = "scripts/OrbitControls.js"></script>
 		<script type = "text/javascript" src = "scripts/main.js"></script>
+        <script type = "text/javascript" src = "scripts/competition_send.js"></script>
 </html>

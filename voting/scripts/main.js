@@ -10,6 +10,7 @@ var init = () => {
     camera.position.z = 7;
 
     controls = new THREE.OrbitControls(camera, container);
+    controls.enableZoom = false;
 
     renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
     renderer.shadowMap.enabled = true;

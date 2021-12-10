@@ -14,21 +14,24 @@ var database = firebase.firestore();
 var username, email, social, votes;
 const increment = firebase.firestore.FieldValue.increment(1);
 var click_counter = 0;
-var d, hours, min, sec
+var d, hours, min, sec;
 
 window.onload = function() {
 
 	click_counter = localStorage.getItem("click-counter");
+    
+    localStorage.setItem("click-counter", click_counter);
 
-	if (click_counter >= 1) {
-
-		localStorage.setItem("vote-counter", 0);
-	}
+    if (localStorage.getItem("vote-counter") === null) {
+        
+        localStorage.setItem("vote-counter", 0);
+    }
 }
 
 setInterval(function time() {
 
 	d = new Date();
+
 	hours = 24 - d.getHours();
 	min = 60 - d.getMinutes();
 	sec = 60 - d.getSeconds();
@@ -46,7 +49,15 @@ setInterval(function time() {
 
 	$('#24hr-countdown-clock').html("There are " + hours + ':' + min + ':' + sec + " left to vote!");
 
-	if (hours === "0" && min === "00" && sec === "00") {
+	if (hours == "0" + 1 && min == "0" + 1 && sec == "0" + 1) {
+
+		localStorage.setItem("vote-counter", 0);
+		localStorage.setItem("click-counter", 0);
+	}
+
+	d.onchange = function() {
+
+		localStorage.setItem("vote-counter", 0);
 		localStorage.setItem("click-counter", 0);
 	}
 
@@ -69,7 +80,9 @@ document.getElementById("file-submit").addEventListener("change", function() {
 
 	if (this.files.length >= 1) {
 
-		document.getElementById("file-status").innerHTML = "Thankyou for uploading your design, good luck";
+		document.getElementById("send-button").innerHTML = "Submit Design";
+		document.getElementById("send-button").style.backgroundColor = "#000";
+		document.getElementById("send-button").style.cursor = "pointer";
 	}
 });
 
@@ -82,6 +95,8 @@ document.getElementById("send-button").onmousedown = function(e) {
 	votes = 0;
 
     if (ValidateEmail(email, social)) {
+        
+            console.log("clicked");
 
     	var ref = firebase.storage().ref("participants-designs");
 		var file = document.getElementById("file-submit").files[0];
@@ -137,19 +152,31 @@ document.getElementById("view-submissions").onmousedown = function(e) {
 				files.push(url);
 
 				var img_container = document.createElement("div");
+				var voting_button = document.createElement("img");
+				voting_button.id = "voting-button";
+				voting_button.src = "./media/vote_button.gif";
+				voting_button.style.width = "200px";
+				
 				var img = document.createElement("img");
-
+				img.classList.add("submissions-img");
 				img.src = url;
+				voting_button.classList.add(img.src);
+				
 				img_container.appendChild(img);
+				img_container.appendChild(voting_button);
+
 				document.getElementById("submissions-images").append(img_container);
 
-				img.onmousedown = function(e) {
+				voting_button.onmousedown = function(e) {
 
+					// console.log(localStorage.getItem("click-counter"));
+				    //console.log(e.target);
+                    
 					click_counter++;
-					// console.log(e.target);
+					
 					localStorage.setItem("click-counter", click_counter);
 
-					if (click_counter >= 1 && localStorage.getItem("vote-counter") != 0) {
+					if (localStorage.getItem("vote-counter") == "0") {
 
 						database.collection("participants").get().then(function(snapshot) {
 
@@ -157,13 +184,13 @@ document.getElementById("view-submissions").onmousedown = function(e) {
 	
 								console.log(doc.id, " ", doc.data());
 	
-								if (e.target.src == doc.data().image_url) {
+								if (e.target.className === doc.data().image_url) {
 	
 									database.collection("participants").doc(doc.id).update({
 										votes: increment
 									});
 
-									localStorage.setItem("vote-counter", 0);
+									localStorage.setItem("vote-counter", click_counter);
 								}
 							});
 						});
@@ -189,7 +216,7 @@ document.getElementById("close-submissions-button").onmousedown = function(e) {
 		document.getElementById("submissions-images").innerHTML = " ";
 
 	}, 1000);
-}
+};
 
 //EMAIL
 $(function() {
